@@ -163,16 +163,16 @@
 
           if (optionSelected) {
             // check if the option is not default
-            if (option.default == false) {
+            if (!option.default == true) {
               // add option price to price variable
-              price += option.price;
+              price = price + option.price;
             }
           } else {
             //image.classList.remove('active');
             // check if the option is default
             if (option.default == true) {
               // reduce price variable
-              price -= option.price;
+              price = price - option.price;
             }
           }
 
