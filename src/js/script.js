@@ -386,6 +386,13 @@
         for (let totalPrice of thisCart.dom.totalPrice) {   // czemu petla
           totalPrice.innerHTML = thisCart.totalPrice;
         }
+      } else {
+        thisCart.totalPrice = 0;
+        thisCart.dom.deliveryFee.innerHTML = 0;
+        thisCart.dom.subtotalPrice.innerHTML = 0;
+        for (let totalPrice of thisCart.dom.totalPrice) {   
+          totalPrice.innerHTML = thisCart.totalPrice;
+        }
       }
     }
 
