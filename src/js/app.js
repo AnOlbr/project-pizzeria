@@ -1,7 +1,6 @@
-
-import {settings, select} from './setting.js';
-import Product from './components/Product.js';
-import Cart from './components/Cart.js';
+import {settings, select} from '/js/settings.js';
+import Product from '/js/components/Product.js';
+import Cart from '/js/components/Cart.js';
 
 
 const app = {
@@ -53,4 +52,4 @@ const app = {
 };
 
 app.init();
-app.initCart();
+//app.initCart();
