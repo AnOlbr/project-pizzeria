@@ -1,6 +1,6 @@
-import {settings, select, classNames} from '/js/settings.js';
-import Product from '/js/components/Product.js';
-import Cart from '/js/components/Cart.js';
+import {settings, select, classNames} from './settings.js';
+import Product from './components/Product.js';
+import Cart from './components/Cart.js';
 
 
 const app = {
@@ -80,6 +80,7 @@ const app = {
 
     thisApp.initPages();
     thisApp.initData();
+    app.initCart();
   },
 
   initCart: function () {
@@ -94,7 +95,8 @@ const app = {
       app.cart.add(event.detail.product);
     });
   }
+
 };
 
 app.init();
-//app.initCart();
+
