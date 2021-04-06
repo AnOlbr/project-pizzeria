@@ -198,3 +198,8 @@
   @include flex(row, flex-start, space-between);
   margin: ($base-size * 4) auto;
 }
+
+.selected {
+  background: white;
+  border: solid 2px green;
+}
