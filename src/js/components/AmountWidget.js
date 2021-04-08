@@ -1,14 +1,17 @@
-import { settings, select, } from '../settings.js';
+import {settings, select} from '../settings.js';
 import BaseWidget from './BaseWidget.js';
 
-class AmountWidget extends BaseWidget {
+class AmountWidget extends BaseWidget{
   constructor(element) {
     super(element, settings.amountWidget.defaultValue);
     const thisWidget = this;
-    thisWidget.getElements(element);
-    thisWidget.initActions();
-  }
 
+    thisWidget.getElements(element);
+
+    thisWidget.initActions();
+
+    //console.log(thisWidget);
+  }
   getElements() {
     const thisWidget = this;
 
@@ -17,14 +20,13 @@ class AmountWidget extends BaseWidget {
     thisWidget.dom.linkIncrease = thisWidget.dom.wrapper.querySelector(select.widgets.amount.linkIncrease);
   }
 
-
-  isValid(value) {
-    return !isNaN(value) &&
-      value >= settings.amountWidget.defaultMin &&
-      value <= settings.amountWidget.defaultMax;
+  isValid(value){
+    return !isNaN(value)
+    && value >= settings.amountWidget.defaultMin
+    && value <= settings.amountWidget.defaultMax;
   }
 
-  renderValue() {
+  renderValue(){
     const thisWidget = this;
 
     thisWidget.dom.input.value = thisWidget.value;
@@ -34,24 +36,19 @@ class AmountWidget extends BaseWidget {
     const thisWidget = this;
 
     thisWidget.dom.input.addEventListener('change', function () {
-      thisWidget.setValue(thisWidget.dom.input.value);
+      thisWidget.value = thisWidget.dom.input.value;
     });
 
     thisWidget.dom.linkDecrease.addEventListener('click', function (event) {
       event.preventDefault();
-      thisWidget.setValue(thisWidget.value - 1);
+      thisWidget.setValue(thisWidget.value -1);
     });
 
     thisWidget.dom.linkIncrease.addEventListener('click', function (event) {
       event.preventDefault();
-      thisWidget.setValue(thisWidget.value + 1);
+      thisWidget.setValue(thisWidget.value +1);
     });
 
-    const event = new CustomEvent('updated',{
-      bubbles: true 
-    });
-
-    thisWidget.dom.wrapper.dispatchEvent(event);
   }
 }
 
