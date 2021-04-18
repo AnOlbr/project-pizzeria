@@ -40,7 +40,6 @@ export const app = {
         window.location.hash = '#/' + id;
       });
     }
-
   },
 
   activatePage: function(pageId){
